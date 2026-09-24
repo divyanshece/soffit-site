@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Soffit design tokens — "Shadow Gap".
+   Dark planes read as architectural elevations; the only warm colour on the
+   page is light, spilling from under the notch's lip, never paint.
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+
+  /* planes, lightest (top of the page, nearest the notch) to deepest */
+  --color-fascia: #000000;
+  --color-plane-top: #353940;
+  --color-plane-mid: #1a1d22;
+  --color-plane: #0f1116;
+  --color-plane-deep: #090a0d;
+
+  /* ink */
+  --color-ink: #e7e9ec;
+  --color-ink-2: rgb(231 233 236 / 0.64);
+  --color-ink-3: rgb(231 233 236 / 0.58);
+  --color-hair: rgb(231 233 236 / 0.1);
+  --color-leader: rgb(231 233 236 / 0.22);
+
+  /* light */
+  --color-lip: #ffc785;
+  --color-spill-hot: #ffa857;
+  --color-spill: #fc7338;
+  --color-spill-out: #e65224;
+
+  /* inside the notch — the app's own NotchTheme, dark */
+  --color-surface: #000000;
+  --color-surface-ink: #ffffff;
+  --color-surface-ink-2: rgb(255 255 255 / 0.55);
+  --color-surface-well: rgb(255 255 255 / 0.16);
+  --color-surface-rule: rgb(255 255 255 / 0.1);
+  --color-good: #4cd963;
+  --color-bad: #ff5c4f;
+  --color-accent: #fc7338;
+
+  /* the app's own stand-in desktop (NotchStage.swift) */
+  --color-desk-1: #3d5978;
+  --color-desk-2: #786154;
+  --color-desk-3: #9e8c66;
+
+  --ease-soffit: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-settle: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-plane);
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-plane);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  ::selection { background: rgb(252 115 56 / 0.35); color: #fff; }
+  :focus-visible {
+    outline: 2px solid var(--color-lip);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Three elements hang light outside their own box and clip only sideways
+   (SpillStatic, Spill, CopyBloom). `overflow: clip` is what allows that; where
+   it is missing the light would pan the page instead, so the page itself takes
+   the clip. */
+@supports not (overflow: clip) {
+  body { overflow-x: hidden }
+}
+
+/* ── the site's two CSS animations ────────────────────────────────────────
+   Both are light, both belong to one hand-made event, and both live here so
+   they are one vocabulary rather than two <style> tags injected at render.
+
+   soffit-lit-run   the lit lower lip of the command well wiping out from the
+                    centre, 0.62s on --ease-soffit.
+   soffit-copy-bloom  ChargeActivityView's "one bloom that settles — not a
+                    pulse": 1600ms, a 180ms linear rise (11.25%) then the
+                    settle on --ease-settle. */
+@keyframes soffit-lit-run {
+  from { transform: scaleX(0); opacity: 0.4 }
+  to { transform: scaleX(1); opacity: 1 }
+}
+
+@keyframes soffit-copy-bloom {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.5); animation-timing-function: linear }
+  11.25% { opacity: 0.5; transform: translateX(-50%) scale(0.5); animation-timing-function: var(--ease-settle) }
+  100% { opacity: 0; transform: translateX(-50%) scale(2) }
+}
+
+@utility tnum { font-variant-numeric: tabular-nums; }
+/* Archivo is a variable font with a width axis; the display face runs wide. */
+@utility wide { font-stretch: 118%; }
+@utility wider { font-stretch: 125%; }
+@utility narrow { font-stretch: 88%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Inside the notch, the app draws with the system face — SF Pro on a Mac. The
+   redraw does the same, so on the machine this is for it is the real thing. */
+@theme {
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "Helvetica Neue", sans-serif;
+}

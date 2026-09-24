@@ -128,8 +128,9 @@ export default function InstallPage() {
             Updates.
           </h2>
           <p className={prose}>
-            To update, run the same line again. Every release is signed with the same certificate, so an update keeps
-            the Accessibility grant: pasting and the volume and brightness readout carry on working.
+            To update, run the same line again. macOS ties the Accessibility grant to the exact build, so after an
+            update pasting and the volume and brightness readout stop until you switch Soffit on again in System
+            Settings, under Privacy &amp; Security.
           </p>
           <p className={prose}>
             The script copies Soffit.app to /Applications, quits any copy already running, and opens it. To get rid of

@@ -19,10 +19,10 @@ DEST="/Applications"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-echo "Downloading Soffit $VERSION…"
+echo "Downloading Soffit ${VERSION}…"
 curl -fL# "$URL" -o "$TMP/Soffit.zip"
 
-echo "Installing to $DEST…"
+echo "Installing to ${DEST}…"
 ditto -x -k "$TMP/Soffit.zip" "$TMP/out"
 APP="$(find "$TMP/out" -maxdepth 1 -name 'Soffit.app' -print -quit)"
 [ -n "$APP" ] || { echo "That archive did not contain Soffit.app."; exit 1; }

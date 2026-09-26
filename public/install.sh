@@ -13,7 +13,7 @@
 # from a command you can read first is if anything the more transparent of the two.
 set -euo pipefail
 
-VERSION="${SOFFIT_VERSION:-0.1.0}"
+VERSION="${SOFFIT_VERSION:-0.2.0}"
 URL="${SOFFIT_URL:-https://soffit.rtaapp.in/downloads/Soffit-$VERSION.zip}"
 DEST="/Applications"
 TMP="$(mktemp -d)"

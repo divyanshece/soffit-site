@@ -50,7 +50,7 @@ export const INDEX: readonly IndexEntry[] = [
   { id: "levels", label: "Volume and brightness", glyph: SunMedium },
   { id: "battery", label: "Battery", glyph: BatteryCharging },
   { id: "status", label: "Status", glyph: Gauge },
-  { id: "eyes", label: "Eyes", glyph: Eye },
+  { id: "eyes", label: "Sidekick", glyph: Eye },
 ];
 
 const noop = () => () => {};

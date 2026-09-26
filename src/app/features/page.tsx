@@ -15,7 +15,7 @@ import { display, heroTop, lede, textLink } from "@/components/site/type";
 export const metadata = pageMetadata({
   title: "Features",
   description:
-    "Clipboard history, timers, now playing, a shelf for files, volume and brightness, battery warnings, the time at a glance, and googly eyes. One surface, one thing at a time.",
+    "Clipboard history, timers, now playing, a shelf for files, volume and brightness, battery warnings, the time at a glance, and a sidekick in the menu bar. One surface, one thing at a time.",
   path: "/features/",
 });
 
@@ -65,8 +65,8 @@ const COPY = {
   },
   eyes: {
     id: "eyes",
-    title: "Eyes",
-    line: "Googly eyes in the menu bar, if you like.",
+    title: "Sidekick",
+    line: "Googly eyes, or a cat, panda, owl, frog or dog, watching your pointer from the menu bar. As big as your menu bar allows.",
   },
 } satisfies Record<string, FeatureCopy>;
 

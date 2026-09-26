@@ -24,7 +24,7 @@ export const SITE = {
   tagline: "A quiet status layer for the top edge of your Mac.",
   description:
     "Soffit lives in the notch on your Mac. Rest the pointer on it and it opens; move away and it is gone again. macOS 14.0 Sonoma or later, Apple silicon only.",
-  version: "0.1.0",
+  version: "0.2.0",
   author: "Divyansh Pandey",
   year: 2026,
 } as const;

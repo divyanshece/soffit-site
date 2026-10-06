@@ -43,7 +43,7 @@ const COPY = {
   shelf: {
     id: "shelf",
     title: "Shelf",
-    line: "Drag files onto the notch and they wait there. It holds a reference, never a copy.",
+    line: "Drag files onto the notch from any app and they wait there.",
     dim: { label: "Shelf", value: "24 tiles" },
   },
   levels: {

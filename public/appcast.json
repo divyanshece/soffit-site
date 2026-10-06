@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
-  "url": "https://soffit.rtaapp.in/downloads/Soffit-0.2.0.zip",
-  "notes": "Meet your sidekick: pick googly eyes, a cat, panda, owl, frog or dog for the menu bar, and make it as big as your menu bar allows. Also fixes the volume and brightness permission not taking effect."
+  "version": "0.3.0",
+  "url": "https://soffit.rtaapp.in/downloads/Soffit-0.3.0.zip",
+  "notes": "The shelf now takes files from any app: VS Code and other editors, Photos, Mail, Safari, Chrome, Firefox and the screenshot thumbnail. Things that aren't files yet are saved for you, and go to the Trash when you take them off the shelf."
 }

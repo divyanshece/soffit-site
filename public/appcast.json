@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
-  "url": "https://soffit.rtaapp.in/downloads/Soffit-0.3.0.zip",
-  "notes": "The shelf now takes files from any app: VS Code and other editors, Photos, Mail, Safari, Chrome, Firefox and the screenshot thumbnail. Things that aren't files yet are saved for you, and go to the Trash when you take them off the shelf."
+  "version": "0.4.0",
+  "url": "https://soffit.rtaapp.in/downloads/Soffit-0.4.0.zip",
+  "notes": "New, and all off until you switch them on in Settings: the notch shows your headphones and their battery when they connect, a keep-awake switch, AirDrop from the shelf, and a quiet mode that keeps the notch out of the way in full-screen apps and in apps you choose."
 }
